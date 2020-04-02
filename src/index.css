@@ -1,11 +1,12 @@
 body {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  font-family: 'Bitter', sans-serif;
+  color: #fff;
+  background: #000;
 }
 
-h2 {
-  font-size: 2em;
+h1 {
+  font-size: 4em;
   margin: 52px 0 40px;
   text-transform: capitalize;
 }
@@ -46,8 +47,9 @@ input {
 }
 
 .main-nav li {
-  width: 100%;
+  width: 70%;
   margin-bottom: 1em;
+  margin-left: 15%;
 }
 
 .main-nav a {

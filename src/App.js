@@ -14,29 +14,40 @@ class App extends React.Component {
         photos: []
     }
 
-    componentDidMount(){
-     axios.get(
-         `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=sunsets&per_page=25&format=json&nojsoncallback=1`)
-        .then(response => {
+    // componentDidMount(){
+    //  axios.get(
+    //      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=waterfall&per_page=24&format=json&nojsoncallback=1`)
+    //     .then(response => {
+    //         this.setState({photos: response.data.photos.photo
+    //         })
+    //        })
+    //      .catch(error => {
+    //       console.log('Error fetching and parsing data', error);
+    //      });
 
-            this.setState({photos: response.data.photos.photo
-            })
-           })
-         .catch(error => {
-          console.log('Error fetching and parsing data', error);
-         });
+    // }
 
+    searchFlickr = (query) => {
+        axios.get(
+            `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+           .then(response => {
+               this.setState({photos: response.data.photos.photo
+               })
+              })
+            .catch(error => {
+             console.log('Error fetching and parsing data', error);
+            });   
     }
     render(){
         return (
     <div className="app">
-        <SearchForm />
+    <h1>Flickr API Browser</h1>
+      <br />
+        <SearchForm searchFlickr={this.searchFlickr}/>
         <NavBar />
-        <div class="photo-container">
-        <h2>Results</h2>
-            <ul>
+        <div className="photo-container">
+        <h3>Results</h3>
             <PhotoResults photos={this.state.photos}/>
-            </ul>
         </div>
     </div>
     );

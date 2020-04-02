@@ -1,13 +1,13 @@
 import React from 'react';
-import {Router, NavLinks} from 'react-router';
+//import {Router, NavLinks} from 'react-router';
 
 const NavBar = () => {
     return(
-        <nav class="main-nav">
+        <nav className="main-nav">
         <ul>
-          <li><a href='#'>Cats</a></li>
-          <li><a href='#'>Dogs</a></li>
-          <li><a href='#'>Computers</a></li>
+          <li><a href='/'>Cats</a></li>
+          <li><a href='/'>Dogs</a></li>
+          <li><a href='/'>Computers</a></li>
         </ul>
       </nav>
     )
