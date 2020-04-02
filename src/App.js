@@ -9,7 +9,9 @@ import PhotoResults from './PhotoResults';
 
 class App extends React.Component {
     state ={
-        photos: ''
+        //array set to an empty array because if not, PhotoResults component will attempt to render
+        // and return an error when 'photos' is not an array
+        photos: []
     }
 
     componentDidMount(){
@@ -30,7 +32,12 @@ class App extends React.Component {
     <div className="app">
         <SearchForm />
         <NavBar />
-        <PhotoResults />
+        <div class="photo-container">
+        <h2>Results</h2>
+            <ul>
+            <PhotoResults photos={this.state.photos}/>
+            </ul>
+        </div>
     </div>
     );
   }
