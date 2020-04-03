@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Photo = (props) => {
-    console.log(props.info)
     const img = {
         id: props.info.id,
         secret: props.info.secret,
