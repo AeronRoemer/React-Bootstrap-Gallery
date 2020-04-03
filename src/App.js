@@ -11,19 +11,25 @@ import NavBar from './NavBar';
 import PhotoResults from './PhotoResults';
 import NotFound from './NotFound';
 
+//LOADING
+
 class App extends React.Component {
     state = {
         //array set to an empty array because if not, PhotoResults component will attempt to render
         // and return an error when 'photos' is not an array
         photos: [],
-        query:'random'
+        query:'random',
+        //loading true by default, changed to false in the when http request if fulfulled
+        loading: true
     }
     //calls random query of flickr when App begins
     componentDidMount(){
      axios.get(
          `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${this.state.query}&per_page=24&format=json&nojsoncallback=1`)
         .then(response => {
-            this.setState({photos: response.data.photos.photo
+            this.setState({
+                photos: response.data.photos.photo,
+                loading: false
             })
            })
          .catch(error => {
@@ -37,14 +43,20 @@ class App extends React.Component {
         axios.get(
             `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
            .then(response => {
-               this.setState({photos: response.data.photos.photo
+               this.setState({
+                   photos: response.data.photos.photo,
+                   loading: false
                })
               })
             .catch(error => {
              console.log('Error fetching and parsing data', error);
             });   
     }
-
+    //if the loading state is true, displays text
+   loading(){
+    if (this.state.loading) {
+    return <h2>Loading...</h2>}
+   }
     render(){
         return (
     <BrowserRouter>
@@ -56,9 +68,10 @@ class App extends React.Component {
         <NavBar searchFlickr={this.searchFlickr}/>
         <div className="photo-container">
         
-            <h3>Results</h3>
+            <h2>Results</h2>
             {/* Returns a route and displays Cats/Dogs/Computers based on props passed to it. Clicking on buttons in NavBar starts search
             props are passed into function and destructured as recommended on tutorial, faster that way*/}
+            {this.loading()}
             <Switch>
             <Route exact path='/' render=
               {(props) => <PhotoResults {...props} photos={this.state.photos}/>}
@@ -72,7 +85,7 @@ class App extends React.Component {
             <Route path='/computers' render=
                 {(props) => <PhotoResults {...props} photos={this.state.photos} />}
                 />
-            <Route component={NotFound} />
+            <Route component={NotFound }/>
             </Switch>
             </div>
       </div>
