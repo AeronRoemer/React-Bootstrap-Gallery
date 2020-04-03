@@ -4,20 +4,19 @@ class SearchForm extends React.Component {
   state = {
     queryString: '',
   }
+  //updates state when anything is typed in serach form
   onSearchChange = (e) => {
     this.setState({queryString: e.target.value})
   }
-
+  //prevents default, passes strng to search function, resets search bar
    handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(this.state.queryString)
     this.props.searchFlickr(this.state.queryString);
     e.currentTarget.reset();
    }
   
   render() {
     return (
-     
     <form onSubmit={this.handleSubmit} className="search-form">
       <input type="search" 
         name="search" 
