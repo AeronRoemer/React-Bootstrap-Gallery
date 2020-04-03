@@ -30,11 +30,6 @@ class App extends React.Component {
          });
     }
 
-    chooseAnimal(animal){
-        this.setState({query: animal
-        }) 
-    }
-
     //search function with default set to random
     searchFlickr = (query) => {
         axios.get(
@@ -71,9 +66,6 @@ class App extends React.Component {
                 {(props) => <PhotoResults {...props} photos={this.state.photos} />}
                 />
             <Route path='/computers' render=
-                {(props) => <PhotoResults {...props} photos={this.state.photos} />}
-                />
-             <Route path='/?search=' render=
                 {(props) => <PhotoResults {...props} photos={this.state.photos} />}
                 />
             </div>
