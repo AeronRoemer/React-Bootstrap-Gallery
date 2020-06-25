@@ -9,9 +9,9 @@ const Photo = (props) => {
         title: props.info.title
     }
     return(
-        <li>
-          <img src={`https://farm${img.farm}.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`} alt={img.title} />
-        </li>
+        <div>
+          <img className="single-photo" src={`https://farm${img.farm}.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`} alt={img.title} />
+        </div>
     )
 }
 

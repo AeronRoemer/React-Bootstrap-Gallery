@@ -7,15 +7,17 @@ const PhotoResults = props => {
     const photosArr = props.photos
     let flicks
     //creates a variable storing React photo components 
-    if (photosArr.length > 0 ) {
+    if (photosArr.length > 0) {
         flicks = photosArr.map(info => <Photo info={info} key={info.id}/>)
+    } else if (props.loading === true) {
+
     } else {
         flicks = <div className="not-found"><h3>Sorry, no results for your search term. </h3></div>
     }
     return(
-        <ul>
-        {flicks}
-        </ul>
+        <div className="gallery-display">
+                {flicks}
+        </div>
         )
 }
 export default PhotoResults;
