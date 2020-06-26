@@ -4,7 +4,7 @@ import { Container, Form, Button, Col } from 'react-bootstrap'
 
 class SearchForm extends React.Component {
   state = {
-    queryString: ''
+    queryString: 'Search'
   }
   //updates state when anything is typed in serach form
   onSearchChange = (e) => {
@@ -12,31 +12,35 @@ class SearchForm extends React.Component {
   }
   //prevents default, passes strng to search function, resets search bar
    handleSubmit = (e) =>{
-    e.preventDefault();
+     console.log('search')
     this.props.searchFlickr(this.state.queryString);
-    e.currentTarget.reset();
    }
   
   render() {
     return (
       //layout rendered with React-Bootstrap
       <Container className="justify-content-md-center search-bar">
-        <Form onSubmit={this.handleSubmit}>
+        <Form>
         <Form.Row>
             <Col>
             <Form.Control type="search" 
                 name="search" 
                 onChange={this.onSearchChange} 
-                placeholder="Search" required/>
+                placeholder='Search' required/>
             </Col>
             <Col xs="auto">
-
+            <Link to={{
+              pathname: '/search',
+              search: `?q=${this.state.queryString}`
+            }}
+            >
                 <Button variant="info"
                   type="submit" 
-                  className="search-button">
+                  className="search-button"
+                  onClick={this.handleSubmit}>
                   Search
                 </Button>
-
+              </Link>
             </Col>
           </Form.Row>
         </Form>
