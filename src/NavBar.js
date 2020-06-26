@@ -13,9 +13,9 @@ const NavBar = (props) => {
       <Row>
       <Col xs="auto"><h3 className='trending'>Trending Now:</h3></Col>
       <Nav>
-        <Col xs="auto"><NavLink to='/trending' onClick={()=> props.searchFlickr(tag1)}><h4>{tag1}</h4></NavLink></Col>
-        <Col xs="auto"><NavLink to='/trending' onClick={()=> props.searchFlickr(tag2)}><h4>{tag2}</h4></NavLink></Col>
-        <Col xs="auto"><NavLink to='/trending' onClick={()=> props.searchFlickr(tag3)}><h4>{tag3}</h4></NavLink></Col>
+        <Col xs="auto"><NavLink to={`/trending/${tag1}`} onClick={()=> props.searchFlickr(tag1)}><h4>{tag1}</h4></NavLink></Col>
+        <Col xs="auto"><NavLink to={`/trending/${tag2}`} onClick={()=> props.searchFlickr(tag2)}><h4>{tag2}</h4></NavLink></Col>
+        <Col xs="auto"><NavLink to={`/trending/${tag3}`} onClick={()=> props.searchFlickr(tag3)}><h4>{tag3}</h4></NavLink></Col>
       </Nav>
       </Row>
       </Container>

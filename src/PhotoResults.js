@@ -5,6 +5,7 @@ import Photo from './Photo';
 const PhotoResults = props => {
     //creates array variable from props data
     const photosArr = props.photos
+    console.log(props)
     let flicks
     //creates a variable storing React photo components 
     if (photosArr.length > 0) {

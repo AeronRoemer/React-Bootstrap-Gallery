@@ -1,0 +1,2 @@
+.headline{margin-top:30px;font-family:sans-serif}.search-bar{margin-bottom:24px}.trending{margin-top:-4px}.nav-area{width:80%;margin:0 auto}.gallery-display{display:flex;flex-flow:row wrap;justify-content:space-evenly;margin:5%}.single-photo{object-fit:cover;height:175px;width:175px;margin:10px;border-radius:5px}@media (max-width:544px){.headline{font-size:80px}.nav-area .trending{font-size:18px}.nav-area h4{font-size:12px}}
+/*# sourceMappingURL=main.412873ec.chunk.css.map */

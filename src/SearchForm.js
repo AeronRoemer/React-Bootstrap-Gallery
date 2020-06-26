@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link } from 'react-router-dom';
 import { Container, Form, Button, Col } from 'react-bootstrap'
+
 class SearchForm extends React.Component {
   state = {
     queryString: ''
@@ -28,11 +30,13 @@ class SearchForm extends React.Component {
                 placeholder="Search" required/>
             </Col>
             <Col xs="auto">
-              <Button variant="info"
-                type="submit" 
-                className="search-button">
-                Search
-              </Button>
+
+                <Button variant="info"
+                  type="submit" 
+                  className="search-button">
+                  Search
+                </Button>
+
             </Col>
           </Form.Row>
         </Form>

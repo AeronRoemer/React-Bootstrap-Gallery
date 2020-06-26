@@ -90,8 +90,8 @@ class App extends React.Component {
             <Route exact path='/' render=
               {() => <PhotoResults photos={this.state.photos} loading={this.state.loading}/>}
               />
-            <Route path='/trending' render=
-                {(props) => <PhotoResults {...props} photos={this.state.photos} />}
+            <Route path={`/trending/:trending`} render=
+                {(props) => <PhotoResults {...props} photos={this.state.photos} loading={this.state.loading}/>}
                 />
             <Route component={() =>{
                   if (this.state.loading === false) {
@@ -106,3 +106,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+
