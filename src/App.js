@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner'
 
 //axios chosen for http requests somewhat arbitrarily so I could practice with it
