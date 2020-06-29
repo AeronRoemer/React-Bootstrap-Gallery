@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner'
-import queryString from 'query-string'
+
 //axios chosen for http requests somewhat arbitrarily so I could practice with it
-//but it is more backwards compatible than fetch(needs polyfill) and auto converts into JSON
+// but it is more backwards compatible than fetch(needs polyfill) and auto converts into JSON
 import axios from 'axios';
 
 //Component and variable imports
@@ -28,14 +28,6 @@ class App extends React.Component {
     
     //calls random query of flickr when App begins
     componentDidMount(){
-    //when search route is called, use location.search to search API.
-   //this method is used in case the user wants to share a link with a search
-   // all other seraches are handled normally. 
-    if(this.props.location.search){
-        console.log('search present')
-        const q = queryString.parse(this.props.location.search).q
-        this.searchFlickr(q)
-        } else {
             axios.get(
                 `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${this.state.query}&per_page=24&format=json&nojsoncallback=1`)
                .then(response => {
@@ -54,12 +46,10 @@ class App extends React.Component {
                           hotTags: response.data.hottags.tag,
                           tagLoading: false,
                       })
-                      console.log(this.state.hotTags)
                      })
                    .catch(error => {
                     console.log('Error fetching and parsing data', error);
                    });
-        }
     }
 
     //search function. No default because form prevents empty submission
@@ -102,8 +92,8 @@ class App extends React.Component {
             <Route exact path='/' render=
               {() => <PhotoResults photos={this.state.photos} loading={this.state.loading}/>}
               />
-              <Route path='/search/' render=
-                {() => (props) => <PhotoResults {...props} photos={this.state.photos} loading={this.state.loading}/>}
+              <Route path='/search' render=
+                {(props) => <PhotoResults {...props} photos={this.state.photos} loading={this.state.loading}/>}
                 />
             <Route path={`/trending/:trending`} render=
                 {(props) => <PhotoResults {...props} photos={this.state.photos} loading={this.state.loading}/>}
@@ -123,4 +113,18 @@ class App extends React.Component {
 export default App;
 
 
-
+//------FOR FUTURE CHANGES
+//     componentDidUpdate(prevProps, prevState){
+//     //when search route is called, use location.search to search API.
+//    //this method is used in case the user wants to share a link with a search
+//    // all other seraches are handled normally. 
+//     if(prevProps.location.search !== this.props.location.search){
+//         const q = queryString.parse(this.props.location.search).q
+//         this.searchFlickr(q)
+//         console.log('searched for' + q)
+//         this.setState({
+//             query: q,
+//         })
+//         }
+//         console.log(this.state.query)
+//     }
