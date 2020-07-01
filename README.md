@@ -28,10 +28,8 @@ Using both the React-Bootstrap and Bootstrap libraries, these framworks sped up 
 
 Using built in grid systems, flexbox, default Bootstrap styles and utility classes, it allowed for a quick, clean setup of the Photo App for multiple sized devices. I wrote some custom HTML because the Bootstrap margin options weren't the fastest option for a project of this small scale. 
 
-#### Tablet: 
-![React Flickr App as seen on Tablet](/img/Tablet.png)
-#### Tablet: 
-![React Flickr App as seen on Mobile](/img/Mobile.png)
+#### Tablet / Mobile
+![React Flickr App as seen on Tablet](/img/Tablet.png) ![React Flickr App as seen on Mobile](/img/Mobile.png)
 
 The Dektop version is visible under the main heading. 
 
