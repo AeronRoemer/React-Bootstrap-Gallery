@@ -4,9 +4,6 @@ This project combines React and Bootstrap to make a simple gallery display.
 
 It was based on a TeamTreehouse.com project, but the code is my own. The 'trending' functionality was added outside of the project, as was the Bootstrap styling and search redirect. 
 
-![React Flickr App as seen on desktop](/img/Desktop.png)
-
-Visit the page at: 
 
 ## Concepts Demonstrated
 
@@ -32,7 +29,7 @@ Using built in grid systems, flexbox, default Bootstrap styles and utility class
 | --- | --- |
 | ![React Flickr App as seen on Tablet](/img/Tablet.png) | ![React Flickr App as seen on Mobile](/img/Mobile.png) |
 
-The Dektop version is visible under the main heading. 
+![React Flickr App as seen on desktop](/img/Desktop.png)
 
 ### React Router
 
