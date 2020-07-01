@@ -24,12 +24,14 @@ Using both the React-Bootstrap and Bootstrap libraries, these framworks sped up 
 * Flexbox Gallery display.
 
 Using built in grid systems, flexbox, default Bootstrap styles and utility classes, it allowed for a quick, clean setup of the Photo App for multiple sized devices. I wrote some custom HTML because the Bootstrap margin options weren't the fastest option for a project of this small scale. 
+| Desktop |
+| -- |
+| ![React Flickr App as seen on desktop](/img/Desktop.png) |
 
 | Tablet| Mobile |
 | --- | --- |
 | ![React Flickr App as seen on Tablet](/img/Tablet.png) | ![React Flickr App as seen on Mobile](/img/Mobile.png) |
 
-![React Flickr App as seen on desktop](/img/Desktop.png)
 
 ### React Router
 
